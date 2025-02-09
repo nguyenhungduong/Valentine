@@ -53,6 +53,15 @@
     }
 
     typeWriter(); // Initiate the typewriter effect
+
+    // Get the audio element by its ID
+    const audio = document.getElementById('bgMusic');
+
+    // Add an event listener to restart the music when it ends
+    audio.addEventListener('ended', function() {
+      audio.currentTime = 0; // Rewind to the beginning
+      audio.play(); // Play the audio again
+    });
   </script>
 
   <!-- External script -->
