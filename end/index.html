@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="icon.ico" type="image/x-icon">
+  <title>Dành cho bạn ngày Valentine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Thêm thẻ audio để phát nhạc -->
+  <audio id="bgMusic" autoplay>
+    <source src="music.mp3" type="audio/mp3">
+    Trình duyệt của bạn không hỗ trợ thẻ audio.
+  </audio>
+
+  <main>
+    <section>
+      <div>
+        <canvas id="canvas" width="800" height="600"></canvas> <!-- Add canvas size -->
+        <h2 id="valentine-message"></h2>
+      </div>
+    </section>
+  </main>
+
+  <!-- Importing necessary JavaScript libraries using importmap -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.154.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.154.0/examples/jsm/",
+        "three-mesh-bvh": "https://unpkg.com/three-mesh-bvh@0.6.0/build/index.module.js",
+        "three-bvh-csg": "https://unpkg.com/three-bvh-csg@0.0.7/build/index.module.js"
+      }
+    }
+  </script>
+
+  <script>
+    // Valentine message with typewriter effect
+    const message = "Nhân dịp Valentine, anh chúc em ngày càng xinh đẹp và thật nhiều may mắn 🍀. Mong em luôn giữ vững tinh thần lạc quan 🌞, sự vui vẻ trong từng bước đi của cuộc sống 🌸. Anh hy vọng mọi ước mơ của em sẽ trở thành hiện thực 🌠, và em sẽ tiếp tục khám phá thế giới 🌍 và những điều xung quanh với một trái tim đẹp, rộng mở 💞.";
+    const element = document.getElementById('valentine-message');
+    let index = 0;
+
+    // Typewriter effect function
+    function typeWriter() {
+      if (index < message.length) {
+        element.innerHTML += message.charAt(index);
+        index++;
+        setTimeout(typeWriter, 60); // Adjust typing speed (60ms)
+      }
+    }
+
+    typeWriter(); // Initiate the typewriter effect
+  </script>
+
+  <!-- External script -->
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>
